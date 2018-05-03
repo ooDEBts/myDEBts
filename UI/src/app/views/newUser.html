@@ -1,0 +1,31 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">{{newUserCtrl.title}}</h3> </div>
+<div class="modal-body" id="modal-body">    
+        <form name="userForm">
+            <div class="row ">
+                <div class="col-sm-4">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" ng-model="newUserCtrl.data.name" name="name"  required/> </div>
+                <div class="col-sm-4">
+                    <label for="username">Contact No</label>
+                    <input type="text" class="form-control" ng-model="newUserCtrl.data.contact" name="username" ng-disabled="newUserCtrl.flag=='Edit'" required/> </div>
+                <div class="col-sm-4">
+                    <label for="password">Password</label>
+                    <input type="text" class="form-control" ng-model="newUserCtrl.data.password" name="password" required/> </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" ng-model="newUserCtrl.data.email" name="email" required/> </div>
+                <div class="col-sm-6">
+                    <label for="contactNo">Role</label>
+                    <input type="text" class="form-control" ng-model="newUserCtrl.data.role" name="contactNo" required/> </div>
+            </div>
+        </form>
+    </div>
+<div class="modal-footer">
+    <div class="btn-wrapper">
+        <button type="button" class="btn btn-primary"  ng-disabled="!userForm.$dirty || userForm.$invalid" ng-click="newUserCtrl.save()">Save</button>
+        <button type="button" class="btn btn-primary" ng-click="newUserCtrl.cancel()">Cancel</button>
+    </div>
+</div>

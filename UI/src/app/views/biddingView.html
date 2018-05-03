@@ -1,0 +1,41 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">{{prod.title}}</h3> </div>
+<div class="modal-body" id="modal-body" style="background-image:url({{bisdd.data.img}})">
+    <form name="userForm">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="width-hun">
+                    <label>{{bid.data.productId}}</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="width-hun margin-left"> <span>Quantity</span>
+                    <input type="number" class="qty-inbox form-control" ng-model="bid.data.selQty" required/><span> out of <label>{{bid.data.quantity}}</label></span> </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12"><span>{{bid.data.desc}}</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="width-hun checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="bid.auto">Auto Bid</label>
+                </div>
+            </div>
+            <div ng-if="bid.auto" class="col-md-9 checkbox"> <span class="pull-right"> Min Bid <b>{{bid.data.bidMinPrice}}</b> to Rs <input type="number" class="qty-inbox form-control price-width" ng-model="bid.data.biddedAmount" required/></span> </div>
+        </div>
+        <div class="row" ng-if="!bid.auto">
+            <div class="col-md-4"> <span class="width-hun"> Running Highest Bid Rs.</span> <b>{{bid.data.bidMaxPrice}}</b> </div>
+            <div class="col-md-4"> <span class="width-hun">Your Bidding Amount :</span>
+                <input type="number" class="qty-inbox form-control price-width" ng-model="bid.data.biddedAmount" required/> </div>
+            <div class="col-md-4"> <span class="width-hun">Minimum bid amount increase Rs.</span> <b>{{bid.data.miniIncPrice}}</b> </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <div class="btn-wrapper">
+        <button type="button" class="btn btn-primary" ng-disabled="!userForm.$dirty || userForm.$invalid" ng-click="bid.save()">Save</button>
+        <button type="button" class="btn btn-primary" ng-click="bid.cancel()">Cancel</button>
+    </div>
+</div>
