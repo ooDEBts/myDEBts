@@ -1,0 +1,15 @@
+<section class="login">
+    <div class="login-page">
+        <div class="login-margin-up-down">
+            <div class="bck"><span class="logo"><img src="../app/resources/images/logo.png"/></span>
+                <form id="lg" name="lg" ng-submit="login.login()">
+                    <div ng-if="login.err"><strong class="err-color">{{login.err}} </strong></div>
+                    <input type="text" class="form-control license-edit" placeholder="Username" ng-model="login.username" required />
+                    <input type="password" class="form-control license-edit" placeholder="Password" ng-model="login.password" required />
+                    <button type="submit" class="btn login-button license-edit" ng-disabled="!lg.$dirty || lg.$invalid">login</button>
+                    <button class="btn login-button license-edit" ng-click="login.signUp()">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

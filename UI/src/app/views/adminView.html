@@ -1,0 +1,64 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Admin Dashboard</h3> </div>
+<div class="modal-body" id="modal-body">
+    <div class="row"> <span class="pull-right" class="glyphicon glyphicon-plus" ng-click="admin.addRows()"><span class="glyphicon glyphicon-plus"></span></span>
+        <table class="table">
+            <tbody>
+                <tr ng-repeat="act in admin.auctions" class="bck">
+                    <td class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="control-group">
+                                    <label class="control-label">Product</label>
+                                    <div class="controls">
+                                        <select class="form-control" ng-model="act.productId">
+                                            <option ng-repeat="data in admin.products" value="{{data.productId}}">{{data.productId}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="control-group">
+                                    <label class="control-label">Min Price</label>
+                                    <div class="controls">
+                                        <input type="number" class="form-control" ng-model="act.bidMinPrice"> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="control-group">
+                                    <label class="control-label">Start From</label>
+                                    <div class="controls">
+                                        <date-time-picker ng-model="act.startDate"></date-time-picker>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="control-group">
+                                    <label class="control-label">End By</label>
+                                    <div class="controls">
+                                        <date-time-picker ng-model="act.endDate"></date-time-picker>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="control-group">
+                                <label class="control-label">Min Increase in Bidding Price</label>
+                                <div class="controls">
+                                    <input type="number" class="form-control" ng-model="act.miniIncPrice"> </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="btn-wrapper">
+        <button type="button" class="btn btn-primary" ng-disabled="" ng-click="admin.save()">Save</button>
+        <button type="button" class="btn btn-primary" ng-click="admin.cancel()">Cancel</button>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Seller Dashboard</h3> </div>
+<div class="modal-body" id="modal-body">
+    <div class="row"> <span class="pull-right" class="glyphicon glyphicon-plus" ng-click="seller.addRows()"><span class="glyphicon glyphicon-plus"></span></span>
+        <table class="table">
+            <tbody>
+                <tr ng-repeat="product in seller.bid" class="bck">
+                    <td class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="control-group">
+                                    <label class="control-label">Product</label>
+                                    <div class="controls">
+                                        <select class="form-control" ng-model="product.productId">
+                                            <option ng-repeat="data in seller.products" value="{{data.productId}}">{{data.productId}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Quality</label>
+                                    <div class="controls">
+                                        <input class="form-control col-md-2" type="number" ng-model="product.quantity"> </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="control-group">
+                                    <label class="control-label">Date</label>
+                                    <div class="controls">
+                                        <select class="form-control" ng-model="product.startDate">
+                                            <option ng-repeat="data in seller.intervals | filter: { productId: product.productId }" value="{{data.start}}">{{data.time}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Available Quality</label>
+                                    <div class="controls">
+                                        <input type="number" class="form-control" ng-model="product.quantity" ng-disabled="true"> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="btn-wrapper">
+        <button type="button" class="btn btn-primary" ng-disabled="" ng-click="seller.save()">Save</button>
+        <button type="button" class="btn btn-primary" ng-click="seller.cancel()">Cancel</button>
+    </div>
+</div>
