@@ -7,7 +7,7 @@ public class BaseModel2 {
 	@Id
     private ObjectId id;
 
-	int ronitghd;
+	int ronitghosh;
 
 	private int aaaaaaaaaaaaa;
 >>>>>>> branch 'master' of https://ronitviper@review.gerrithub.io/a/ooDEBts/myDEBts
